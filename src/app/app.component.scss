@@ -1,7 +1,43 @@
-main {
-  padding: 1em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  margin-top: 50px;
-  display: block;
+$navbarRowHeight: 38px;
+$navbarTogglerWidth: 44px;
+
+nav a:hover {
+  cursor: pointer !important;
 }
+
+#navbar-form {
+  float: right;    
+} 
+
+//tablets and smaller
+@media (max-width: 47.9em) {
+  #navbar-form {
+    clear: left;
+    float: left;    
+  } 
+}
+
+//smartphones and smaller
+@media (max-width: 33.9em) {
+  #collapsingNavbar {
+    position: relative;
+
+    .navbar-brand {
+      position: absolute;
+      top: -$navbarRowHeight; //row height in navbar
+      left: $navbarTogglerWidth; //width of toggler
+    }
+
+    .navbar-nav :not(:first-child) {
+      float: right;
+      padding-right: 0.25rem;
+    }
+
+    #navbar-form-submit {
+      position: absolute;
+      top: $navbarRowHeight;
+      right: 0;
+    }
+  }
+}
+

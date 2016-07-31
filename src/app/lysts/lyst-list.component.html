@@ -1,0 +1,9 @@
+<p>List of Lysts</p>
+<div class="list-group">
+  <a *ngFor='let lyst of lysts' class="list-group-item">
+    <span class="label label-success label-pill pull-xs-right">{{ lyst.popularity }}</span>
+    <span class="label label-info label-pill pull-xs-right">{{ lyst.entryCount }}</span>
+    <span class="label label-success label-pill pull-xs-right">{{ lyst.avgRating }}</span>
+    {{ lyst.name }} by {{ lyst._creator.fullname }}
+  </a>
+</div>

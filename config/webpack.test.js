@@ -2,7 +2,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['', '.ts', '.js', '.scss']
   },
 
   module: {
@@ -21,7 +21,7 @@ module.exports = {
         loader: 'null'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         loader: 'null'
       }
     ]

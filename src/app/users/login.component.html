@@ -1,0 +1,37 @@
+<h4>Please {{ action === "signIn" ? 'Login' : 'Register' }}</h4>
+<form (ngSubmit)="submitCredentials(credentialsForm)" #credentialsForm="ngForm">
+  <fieldset [hidden]="action === 'signIn'" class="form-group">
+    <label for="fullname">Name</label>
+    <input type="text" class="form-control" required
+      name="fullname" #fullname="ngModel"
+      [(ngModel)]="model.fullname">
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="username">Email</label>
+    <input type="text" class="form-control" required
+      name="username" #username="ngModel"
+      [(ngModel)]="model.username">
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" required
+      name="password" #password="ngModel"
+      [(ngModel)]="model.password">
+  </fieldset>
+  <!-- <fieldset [hidden]="action === 'signIn'" class="form-group">
+    <label for="passwordConfirmation">Password Confirmation</label>
+    <input type="text" class="form-control" required
+      name="passwordConfirmation" #passwordConfirmation="ngModel"
+      [(ngModel)]="passwordConfirmation">
+  </fieldset> -->
+
+  <button type="submit" class="btn btn-primary" [disabled]="!credentialsForm.form.valid">Submit</button>
+  <div *ngIf="action === 'signIn'">
+    <br><span>Don't have an account?</span>
+    <button type="button" class="btn btn-secondary" (click)="action='signUp'">Sign Up</button>
+  </div>
+  <div *ngIf="action === 'signUp'">
+    <br><span>Already have an account?</span>
+    <button type="button" class="btn btn-secondary" (click)="action='signIn'">Sign In</button>
+  </div>
+</form>

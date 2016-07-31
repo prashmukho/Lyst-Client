@@ -1,4 +1,42 @@
-<main>
-  <h1>Hello from Angular 2 App with Webpack</h1>
-  <button type="button" class="btn btn-primary">Click Me!</button>
-</main>
+<nav class="navbar navbar-full navbar-dark bg-inverse">
+  <button class="navbar-toggler hidden-sm-up" type="button" 
+    data-toggle="collapse" data-target="#collapsingNavbar"
+    #navToggle (click)='navToggle.blur()'>
+    &#9776;
+  </button>
+
+  <div class="collapse navbar-toggleable-xs" id="collapsingNavbar">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <ul class="nav navbar-nav">
+      <li *ngIf='!auth.loggedIn' class="nav-item">
+        <a class="nav-link" routerLink='/login' routerLinkActive='active'>Login</a>
+      </li>
+      <li *ngIf='auth.loggedIn' class="nav-item btn-group">
+        <a id='dLabel' class="nav-link dropdown-toggle" 
+          role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ auth.currentUser.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dLabel">
+          <a class="dropdown-item" 
+            [routerLink]="['/users', auth.currentUser._id]" routerLinkActive='active'>
+            Profile
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)='logout()'>Logout</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/lysts' routerLinkActive='active'>Lysts</a>
+      </li>
+    </ul>
+
+    <form id='navbar-form' class="form-inline">
+      <input class="form-control" type="text" placeholder="Search">
+      <button id='navbar-form-submit' class="btn btn-success-outline" type="button">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class='container' style='padding-top:15px;'>
+  <router-outlet></router-outlet>
+</div>
