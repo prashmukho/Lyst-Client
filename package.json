@@ -1,11 +1,11 @@
 {
-  "name": "angular-2-starter",
+  "name": "Lyst-Client",
   "version": "0.1.0",
-  "description": "An Angular 2 starter app",
+  "description": "An Angular 2 starter app which interfaces with a backend server.",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    // "test": "karma start",
+    // "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install"
   },
   "license": "MIT",
